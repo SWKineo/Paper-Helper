@@ -1,0 +1,23 @@
+{
+  "name": "Paper Helper",
+  "version": "1.1",
+  "manifest_version": 3,
+  "description": "Open abstracts and PDFs for tasks",
+
+  "background": {
+    "service_worker": "helper.js"
+  },
+
+  "icons": {
+    "16": "inv-16.png",
+    "48": "inv-48.png",
+    "64": "inv-64.png",
+    "128": "inv-128.png"
+  },
+
+  "permissions": [
+      "contextMenus",
+      "offscreen",
+      "clipboardWrite"
+  ]
+}
