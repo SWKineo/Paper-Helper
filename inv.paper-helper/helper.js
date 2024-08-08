@@ -27,14 +27,14 @@ async function onClick(info, tab) {
   let pdfActive;
 
   switch (info.menuItemId) {
-    // case 'deh-open-pdf':
-    //   // Open the PDF in the foreground
-    //   paperId =  getPaperId(info.selectionText);
-    //   currentTabIndex = tab.index;
-    //   if (!paperId) break;
-    //   pdfUrl = `https://arxiv.org/pdf/${paperId}.pdf`;
-    //   pdfActive = true;
-    //   break;
+    case 'deh-open-pdf':
+      // Open the PDF in the foreground
+      paperId =  getPaperId(info.selectionText);
+      currentTabIndex = tab.index;
+      if (!paperId) break;
+      pdfUrl = `https://arxiv.org/pdf/${paperId}.pdf`;
+      pdfActive = true;
+      break;
     // case 'deh-open-abstract':
     //   // Open the abstract in the foreground
     //   paperId =  getPaperId(info.selectionText);
@@ -104,13 +104,6 @@ function getPaperId(idText) {
   }
 }
 
-/* Clean up paper content formatting */
-function cleanUpPaper(paper) {
-  // Remove unnecessary newlines
-  // return paper.replace(/(?<=[\S]+)\n(?=[\S])/g, " ");
-  return paper;
-}
-
 // async function addToClipboard(value) {
 //   await chrome.offscreen.createDocument({
 //     url: 'offscreen.html',
@@ -130,12 +123,12 @@ function cleanUpPaper(paper) {
 /* Add context menus */
 chrome.runtime.onInstalled.addListener(function () {
   
-  // chrome.contextMenus.create({
-  //   title: "Open PDF",
-  //   id: "deh-open-pdf",
-  //   contexts: ['selection'],
-  //   documentUrlPatterns: ["https://*.com/tasks/*"]
-  // });
+  chrome.contextMenus.create({
+    title: "Open PDF",
+    id: "deh-open-pdf",
+    contexts: ['selection'],
+    documentUrlPatterns: ["https://*.com/campaigns/*"]
+  });
   
   // chrome.contextMenus.create({
   //   title: "Open abstract",

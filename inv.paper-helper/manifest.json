@@ -8,6 +8,10 @@
     "service_worker": "helper.js"
   },
 
+  "action": {
+    "default_popup": "popup.html"
+  },
+
   "icons": {
     "16": "inv-16.png",
     "48": "inv-48.png",
