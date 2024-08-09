@@ -51,7 +51,7 @@ function cleanUpPaper(paper) {
   workzone = workzone.replace(/\\mbox\s*\{(.*?)\}/g, "\text{$1}");
 
   // Clean up formatting for theorems, lemmas, corollaries, propositions, proofs, exercises, examples
-  workzone = workzone.replace(/::: \w+\*/g, "::: *");
+  workzone = workzone.replace(/(?<=:+)\s+\w+\s+\*/g, " *");
 
   // Clean up special or misread symbols
   workzone = workzone.replace(/◻/g, "$\\square$");
