@@ -1,6 +1,6 @@
 {
   "name": "Paper Helper",
-  "version": "1.1",
+  "version": "1.2",
   "manifest_version": 3,
   "description": "Open abstracts and PDFs for tasks",
 
@@ -20,8 +20,6 @@
   },
 
   "permissions": [
-      "contextMenus",
-      "offscreen",
-      "clipboardWrite"
+      "contextMenus"
   ]
 }
