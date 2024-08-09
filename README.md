@@ -14,7 +14,7 @@ Includes a tool for quickly cleaning up paper markdown and TeX:
 
 ## Opening PDF's and abstracts
 
-To open the PDF and abstract of a paper, highlight the ID, then right-click it and select 'Open PDF and abstract'. The extension filters extra text before the ID, so it's okay to include some of the extra text on the same line (e.g. "Arxiv: .../##.##.gz"). The quickest way to use is to triple-click anything on the ID line, then right-click the whole selection:
+To open the PDF and abstract of a paper, highlight the ID, then right-click it and select 'Open PDF and abstract'. The extension filters text before the ID, so it's okay to include extra text on the same line (e.g. "Arxiv: .../##.##.gz"). The quickest way to use is to triple-click anything on the ID line, then right-click the whole selection:
 
 ![chrome_Sv7CLg4K3W](https://github.com/user-attachments/assets/8813a01e-ef92-4d94-a391-ab9855d9431c)
 
