@@ -45,19 +45,18 @@ function cleanUpPaper(paper) {
   workzone = workzone.replace(/(?<=\S)\s+\$\$([\s\S]+?)\$\$/g, "\n\n$$$$$1$$$$");
   workzone = workzone.replace(/\$\$([\s\S]+?)\$\$\s+(?=\S)/g, "$$$$$1$$$$\n\n");
 
-  // Replace \mbox's containing math with plain math
-  workzone = workzone.replace(/\\mbox\s*\{\$(.*?)\$\}/g, "$1");
-  // Replace \mbox's containing text with \text's
-  workzone = workzone.replace(/\\mbox\s*\{(.*?)\}/g, "\text{$1}");
-
   // Clean up formatting for theorems, lemmas, corollaries, propositions, proofs, exercises, examples
   workzone = workzone.replace(/(?<=:+)\s+\w+\s+\*/g, " *");
 
-  // Clean up special or misread symbols
+  // Clean up special, misread, or deprecated symbols
   workzone = workzone.replace(/\u25FB/g, "$\\square$"); // ◻
   workzone = workzone.replace(/\u00A0/g, " "); //
   workzone = workzone.replace(/\\mathpzc/g, "\\mathcal");
   workzone = workzone.replace(/\\rm /g, "\\textrm ");
+  // Replace \mbox's containing math with plain math
+  workzone = workzone.replace(/\\mbox\s*\{\$(.*?)\$\}/g, "$1");
+  // Replace \mbox's containing text with \text's
+  workzone = workzone.replace(/\\mbox\s*\{(.*?)\}/g, "\text{$1}");
 
   // Fix indexed lists
   // workzone = workzone.replace(/^(\$?(?:\([IVXa-z\d]+\))|(?:[IVXa-z\d]+\.)\$?)[\n\r\s]*:[\n\r\s]*(\S)/g, "$1: $2");
