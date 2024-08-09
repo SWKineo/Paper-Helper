@@ -39,12 +39,11 @@ function cleanUpPaper(paper) {
   workzone = workzone.replace(/[\s\S]+?1\nUser\nAll\n/g, "");
   workzone = workzone.replace(/(?:2\nAssistant\nAll)|(?:Assistant\nIdeal\n)[\s\S]+/g, "");
 
-
   // Remove unnecessary newlines
   workzone = workzone.replace(/(?<=[\S]+)\n(?=[\S])/g, " ");
   // Add newlines around math mode ($$ $$)
-  workzone = workzone.replace(/(?<=\S)\s+\$\$(.+?)\$\$/g, "\n\n$$$$$1$$$$");
-  workzone = workzone.replace(/\$\$(.+?)\$\$\s+(?=\S)/g, "$$$$$1$$$$\n\n");
+  workzone = workzone.replace(/(?<=\S)\s+\$\$([\s\S]+?)\$\$/g, "\n\n$$$$$1$$$$");
+  workzone = workzone.replace(/\$\$([\s\S]+?)\$\$\s+(?=\S)/g, "$$$$$1$$$$\n\n");
 
   // Replace \mbox's containing math with plain math
   workzone = workzone.replace(/\\mbox\s*\{\$(.*?)\$\}/g, "$1");
