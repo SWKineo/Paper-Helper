@@ -14,6 +14,7 @@
 
   "icons": {
     "16": "inv-16.png",
+    "32": "inv-32.png",
     "48": "inv-48.png",
     "64": "inv-64.png",
     "128": "inv-128.png"
