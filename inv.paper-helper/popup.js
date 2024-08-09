@@ -55,7 +55,8 @@ function cleanUpPaper(paper) {
 
   // Clean up special or misread symbols
   workzone = workzone.replace(/\u25FB/g, "$\\square$"); // ◻
-  workzone = workzone.replace(/\u00A0/g, " "); //  
+  workzone = workzone.replace(/\u00A0/g, " "); //
+  workzone = workzone.replace(/\\mathpzc/g, "\\mathcal");
 
   // Fix indexed lists
   // workzone = workzone.replace(/^(\$?(?:\([IVXa-z\d]+\))|(?:[IVXa-z\d]+\.)\$?)[\n\r\s]*:[\n\r\s]*(\S)/g, "$1: $2");
