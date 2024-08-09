@@ -1,6 +1,6 @@
 # Paper Helper (Invisible)
 
-A simple extension for browsing and cleaning-up papers.
+A simple extension for browsing and cleaning up papers.
 
 ## Overview
 
