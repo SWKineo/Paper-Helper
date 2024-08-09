@@ -2,8 +2,16 @@ body {
     
 }
 
+h2 {
+    margin-top: 8px;
+    margin-bottom: 7px;
+    margin-left: 3px;
+}
+
 .code {
-    width: 770px;
-    height: 220px;
+    width: 754px;
+    height: 246px;
     margin: auto;
+    margin-left: 2px;
+    margin-right: 2px;
 }
