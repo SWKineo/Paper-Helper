@@ -24,21 +24,21 @@ To open the PDF and abstract of a paper, highlight the ID, then right-click it a
 
 To fix common formatting issues, click the extension icon ![inv-16](https://github.com/user-attachments/assets/ff069a31-0fbd-4ead-9114-c3401f153199) to open the cleanup tool. Paste raw paper contents in the top box, then a cleaned-up version will appear in the lower box.
 
-It currently uses regular expressions to perform the following:
+The extension currently uses regular expressions to perform the following:
 
-- removes surrounding text from the page (above and below the paper)
+- remove surrounding text from the page (above and below the paper)
 
-- removes unnecessary linebreaks;
+- remove unnecessary linebreaks;
 
-- adds linebreaks around math mode ($$..$$) where applicable;
+- add linebreaks around math mode ($$..$$) where applicable;
 
-- replaces common unicode characters (currently '◻' and ' ') and unsupported/deprecated libraries (\mathpzc, \rm, \mbox)
+- replace common unicode characters (currently '◻' and ' ') and unsupported/deprecated libraries (\mathpzc, \rm, \mbox).
 
-I'll be expanding this as I clean up my own papers, so feel free to suggest new edits! Current regexes can be found in the `cleanUpPaper` function in `inv.paper-helper/popup.js`.
+I'll be adding to these as I clean up my own papers, so feel free to suggest new edits. Current regexes can be found in the `cleanUpPaper` function in `inv.paper-helper/popup.js`.
 
 ## Loading this extension
 
-1. Clone this repository, or download it as a ZIP and extract the folder `inv.paper-helper`:
+1. Clone the repository, or download it as a ZIP and extract the folder `inv.paper-helper`:
 
 ![image](https://github.com/user-attachments/assets/944024cf-81ed-4c9a-ba98-a422440c4d49)
 
