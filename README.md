@@ -1,6 +1,6 @@
 # Paper Helper (Invisible)
 
-A simple extension for browsing and cleaning up papers.
+A simple extension for browsing and cleaning up papers
 
 ## Overview
 
@@ -35,6 +35,14 @@ The extension currently uses regular expressions to perform the following:
 - replace common unicode characters (currently '◻' and ' ') and unsupported/deprecated libraries (\mathpzc, \rm, \mbox).
 
 I'll be adding to these as I clean up my own papers, so feel free to suggest new edits. Current regexes can be found in the `cleanUpPaper` function in `inv.paper-helper/popup.js`.
+
+To do:
+
+- Fix linebreaks in labelled lists
+
+- Implement Danilo's algorithm for replacing equation labels
+
+Please feel free to open issues and/or pull requests for bugs or changes
 
 ## Loading this extension
 
