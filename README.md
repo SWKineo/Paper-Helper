@@ -30,7 +30,7 @@ The extension currently uses regular expressions to perform the following:
 
 - remove unnecessary linebreaks;
 
-- add linebreaks around math mode ($$..$$) where applicable;
+- add linebreaks around math mode (\$\$..\$\$) where applicable;
 
 - replace common unicode characters (currently '◻' and ' ') and unsupported/deprecated libraries (\mathpzc, \rm, \mbox).
 
