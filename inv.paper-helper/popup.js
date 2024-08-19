@@ -38,21 +38,28 @@ function cleanUpPaper(paper) {
   // Remove surrounding text from the page, if applicable
   workzone = workzone.replace(/[\s\S]+?1\nUser\nAll\n/g, "");
   workzone = workzone.replace(/(?:2\nAssistant\nAll)|(?:Assistant\nIdeal\n)[\s\S]+/g, "");
+  workzone = workzone.replace(/# Question[\s\S]*/g, "");
 
   // Remove unnecessary newlines
   workzone = workzone.replace(/(?<=[\S]+)\n(?=[\S])/g, " ");
-  // Add newlines around math mode ($$ $$)
+  // Add double newlines around math mode ($$ $$)
   workzone = workzone.replace(/(?<=\S)\s+\$\$([\s\S]+?)\$\$/g, "\n\n$$$$$1$$$$");
   workzone = workzone.replace(/\$\$([\s\S]+?)\$\$\s+(?=\S)/g, "$$$$$1$$$$\n\n");
+  // Convert TeX newlines, '\', to double newlines
+  workzone = workzone.replace(/(?<=\$\$)\s*\\\s*(.*$)/g, "\n\n$1");
 
   // Clean up formatting for theorems, lemmas, corollaries, propositions, proofs, exercises, examples
-  workzone = workzone.replace(/(?<=:+)\s+\w+\s+\*/g, " *");
+  workzone = workzone.replace(/(?<=(?::::)+)\s+[a-z]+\s+\*/g, " *");
+  // Fix spacing format
+  workzone = workzone.replace(/\[([\d\.]+(?:in|mm|cm))\]/g, "\\hspace{$1}");
 
   // Clean up special, misread, or deprecated symbols
-  workzone = workzone.replace(/\u25FB/g, "$\\square$"); // ◻
-  workzone = workzone.replace(/\u00A0/g, " "); //
+  workzone = workzone.replace(/\u25FB/g, "$\\square$"); // square '◻'
+  workzone = workzone.replace(/\u00A0/g, " "); // space ' '
+  workzone = workzone.replace(/---/g, " \u2014 "); // em dash '—'
+  workzone = workzone.replace(/--/g, " \u2013 "); // en dash '–'
   workzone = workzone.replace(/\\mathpzc/g, "\\mathcal");
-  workzone = workzone.replace(/\\rm /g, "\\textrm ");
+  workzone = workzone.replace(/\{\\rm ([^\$])+?\}/g, "\\mathrm{$1}");
   // Replace \mbox's containing math with plain math
   workzone = workzone.replace(/\\mbox\s*\{\$(.*?)\$\}/g, "$1");
   // Replace \mbox's containing text with \text's
