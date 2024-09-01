@@ -36,7 +36,7 @@ function cleanUpPaper(paper) {
   let workzone = `${paper}`;
 
   // Remove surrounding text from the page, if applicable
-  workzone = workzone.replace(/[\s\S]+?1\nUser\nAll\n/g, "");
+  workzone = workzone.replace(/[\s\S]+?(?:0|1)\nUser\nAll\n/g, "");
   workzone = workzone.replace(/(?:2\nAssistant\nAll)|(?:Assistant\nIdeal\n)[\s\S]+/g, "");
   workzone = workzone.replace(/# Question[\s\S]*/g, "");
 
@@ -50,7 +50,7 @@ function cleanUpPaper(paper) {
 
   // Clean up formatting for theorems, lemmas, corollaries, propositions, proofs, exercises, examples
   workzone = workzone.replace(/(?<=(?::::)+)\s+[a-z]+\s+\*/g, " *");
-  // Fix spacing format
+  // Fix horizontal spacing format
   workzone = workzone.replace(/\[([\d\.]+(?:in|mm|cm))\]/g, "\\hspace{$1}");
 
   // Clean up special, misread, or deprecated symbols
@@ -63,7 +63,10 @@ function cleanUpPaper(paper) {
   // Replace \mbox's containing math with plain math
   workzone = workzone.replace(/\\mbox\s*\{\$(.*?)\$\}/g, "$1");
   // Replace \mbox's containing text with \text's
-  workzone = workzone.replace(/\\mbox\s*\{(.*?)\}/g, "\text{$1}");
+  workzone = workzone.replace(/\\mbox\s*\{(.*?)\}/g, "\\text{$1}");
+
+  // Fix miscellaneous math mode errors
+  workzone = workzone.replace(/\\mathcal(\w)/g, "\\mathcal $1");
 
   // Fix indexed lists
   // workzone = workzone.replace(/^(\$?(?:\([IVXa-z\d]+\))|(?:[IVXa-z\d]+\.)\$?)[\n\r\s]*:[\n\r\s]*(\S)/g, "$1: $2");
