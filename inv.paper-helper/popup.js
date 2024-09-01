@@ -44,9 +44,9 @@ function cleanUpPaper(paper) {
   workzone = workzone.replace(/(?<=[\S]+)\n(?=[\S])/g, " ");
   // Add double newlines around math mode ($$ $$ or \[ \])
   workzone = workzone.replace(/(?<=\S)\s+\$\$([\s\S]+?)\$\$/g, "\n\n$$$$$1$$$$");
-  workzone = workzone.replace(/(?<=\S)\s+\\\[([\s\S]+?)\\\]/g, "\n\n\[$1\]");
+  workzone = workzone.replace(/(?<=\S)\s+\\\[([\s\S]+?)\\\]/g, "\n\n\\[$1\\]");
   workzone = workzone.replace(/\$\$([\s\S]+?)\$\$\s+(?=\S)/g, "$$$$$1$$$$\n\n");
-  workzone = workzone.replace(/\\\[([\s\S]+?)\\\]\s+(?=\S)/g, "\[$1\]\n\n");
+  workzone = workzone.replace(/\\\[([\s\S]+?)\\\]\s+(?=\S)/g, "\\[$1\\]\n\n");
   // Convert TeX newlines, '\', to double newlines
   workzone = workzone.replace(/(?<=\$\$)\s*\\\s*(.*$)/g, "\n\n$1");
   workzone = workzone.replace(/(?<=\\\])\s*\\\s*(.*$)/g, "\n\n$1");
